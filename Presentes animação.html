@@ -148,6 +148,15 @@
     </style>
 </head>
 <body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.gift').forEach(gift => {
+                const img = gift.querySelector('img');
+                const price = gift.querySelector('.gift-price').textContent.trim();
+                img.setAttribute('data-price', price);
+            });
+        });
+        </script>
     <div class="carousel">
         <div class="carousel-track" id="carouselTrack">
 
