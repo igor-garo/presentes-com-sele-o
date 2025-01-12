@@ -128,23 +128,24 @@
         }
 
         .button-container button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #222;
-            color: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #222;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
 
-        .button-container button:hover {
-            background-color: #444;
-        }
+.button-container button:hover {
+    background-color: #444;
+}
 
-        .button-container button:focus {
-            outline: none;
-            border-color: #555;
-        }
+.button-container button:focus {
+    outline: none;
+    border-color: #555;
+}
     </style>
 </head>
 <body>
@@ -164,7 +165,8 @@
     </div>
 
     <div class="button-container">
-        <button onclick="openPopup()">Selecionar Imagens</button>
+        <button onclick="openPopup()">Selecionar presente</button>
+        <button onclick="removeAllGifts()">Remover Presentes</button>
     </div>
 
     <div class="popup" id="popup">
@@ -1395,14 +1397,15 @@
     <script>
         const track = document.getElementById('carouselTrack');
         let items = Array.from(track.children);
-
+        const selectedGifts = new Set();
+    
         function createInfiniteLoop() {
             const totalWidth = items.reduce((sum, item) => sum + item.offsetWidth + 60, 0);
             track.style.width = `${totalWidth}px`;
-
+    
             let position = 0;
             const speed = 3;
-
+    
             function animate() {
                 position -= speed;
                 if (Math.abs(position) >= items[0].offsetWidth + 60) {
@@ -1414,22 +1417,32 @@
                 track.style.transform = `translateX(${position}px)`;
                 requestAnimationFrame(animate);
             }
-
+    
             animate();
         }
-
+    
         function openPopup() {
             document.getElementById('popup').style.display = 'block';
         }
-
+    
         function closePopup() {
             document.getElementById('popup').style.display = 'none';
         }
-
+    
         function toggleSelection(img) {
+            const giftName = img.alt;
+            if (selectedGifts.has(giftName)) {
+                alert('Este presente já foi selecionado.');
+                return;
+            }
             img.classList.toggle('selected');
+            if (img.classList.contains('selected')) {
+                selectedGifts.add(giftName);
+            } else {
+                selectedGifts.delete(giftName);
+            }
         }
-
+    
         function addSelectedGifts() {
             const selectedImages = document.querySelectorAll('.popup-content img.selected');
             selectedImages.forEach(img => {
@@ -1447,8 +1460,14 @@
             closePopup();
             createInfiniteLoop();
         }
-
+    
+        function removeAllGifts() {
+            track.innerHTML = '';
+            items = [];
+            selectedGifts.clear();
+        }
+    
         window.onload = createInfiniteLoop;
     </script>
-</body>
+    </body>
 </html>
