@@ -106,8 +106,8 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            max-height: 60vh; /* Define a altura máxima para o conteúdo do pop-up */
-            overflow-y: auto; /* Adiciona a barra de rolagem vertical */
+            max-height: 60vh;
+            overflow-y: auto;
         }
 
         .popup-content img {
@@ -128,45 +128,43 @@
         }
 
         .button-container button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #222;
-    color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 5px;
-}
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #222;
+            color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
 
-.button-container button:hover {
-    background-color: #444;
-}
+        .button-container button:hover {
+            background-color: #444;
+        }
 
-.button-container button:focus {
-    outline: none;
-    border-color: #555;
-}
+        .button-container button:focus {
+            outline: none;
+            border-color: #555;
+        }
+
+        .find-gift-button {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.gift').forEach(gift => {
-                const img = gift.querySelector('img');
-                const price = gift.querySelector('.gift-price').textContent.trim();
-                img.setAttribute('data-price', price);
-            });
-        });
-        </script>
     <div class="carousel">
         <div class="carousel-track" id="carouselTrack">
-
+            <!-- Itens da carrossel -->
         </div>
     </div>
 
     <div class="button-container">
-        <button onclick="openPopup()">Selecionar presente</button>
-        <button onclick="removeAllGifts()">Remover Presentes</button>
+        <button onclick="openPopup()">Selecionar Imagens</button>
+        <button onclick="removeAllGifts()">Remover Todos os Presentes</button>
     </div>
 
     <div class="popup" id="popup">
@@ -174,1223 +172,25 @@
             <h2>Selecione as Imagens</h2>
             <button onclick="closePopup()">✖</button>
         </div>
-        <div class="popup-content">
-<div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.webp" alt="GG" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">GG</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/b805f23afc85a3d4be1a49fac83144b5.png~tplv-obj.webp" alt="2025" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">2025</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/968820bc85e274713c795a6aef3f7c67~tplv-obj.webp" alt="Ice Cream Cone" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Ice Cream Cone</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/9d64a7ace98699062ec1410352d34ead.png~tplv-obj.webp" alt="GG 2025" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">GG 2025</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp" alt="TikTok" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">TikTok</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/eba3a9bb85c33e017f3648eaf88d7189~tplv-obj.webp" alt="Rose" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Rose</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/d56945782445b0b8c8658ed44f894c7b~tplv-obj.webp" alt="Heart Me" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Heart Me</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/570a663e27bdc460e05556fd1596771a~tplv-obj.webp" alt="Thumbs Up" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Thumbs Up</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/dd300fd35a757d751301fba862a258f1~tplv-obj.webp" alt="Heart" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Heart</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/f681afb4be36d8a321eac741d387f1e2~tplv-obj.webp" alt="Cake Slice" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Cake Slice</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/8e1a5d66370c5586545e358e37c10d25~tplv-obj.webp" alt="Glow Stick" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Glow Stick</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/ab0a7b44bfc140923bb74164f6f880ab~tplv-obj.webp" alt="Love you" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Love you</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/1fa0a4ed666304c78a46de200b85c84b.png~tplv-obj.webp" alt="Candy Cane" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Candy Cane</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/b199d028d5beb081fe16edcf77db0830.png~tplv-obj.webp" alt="Flame heart" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Flame heart</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/c9734b74f0e4e79bdfa2ef07c393d8ee.png~tplv-obj.webp" alt="Pumpkin" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Pumpkin</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/05ea964bf24ff849df2608e9116e0c87.png~tplv-obj.webp" alt="Squirrel" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Squirrel</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/6a934c90e5533a4145bed7eae66d71bd.png~tplv-obj.webp" alt="Team Cheers" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Team Cheers</p>
-        <p class="gift-price">1 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/54cb1eeca369e5bea1b97707ca05d189.png~tplv-obj.webp" alt="Team Bracelet" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Team Bracelet</p>
-        <p class="gift-price">2 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp" alt="Finger Heart" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Finger Heart</p>
-        <p class="gift-price">5 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/676d2d4c31a8979f1fd06cdf5ecd922f~tplv-obj.webp" alt="Popcorn" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Popcorn</p>
-        <p class="gift-price">5 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/97e0529ab9e5cbb60d95fc9ff1133ea6~tplv-obj.webp" alt="Cheer You Up" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Cheer You Up</p>
-        <p class="gift-price">9 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/fb8da877eabca4ae295483f7cdfe7d31.png~tplv-obj.webp" alt="Team Power" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Team Power</p>
-        <p class="gift-price">9 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/e033c3f28632e233bebac1668ff66a2f.png~tplv-obj.webp" alt="Friendship Necklace" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Friendship Necklace</p>
-        <p class="gift-price">10 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/eb77ead5c3abb6da6034d3cf6cfeb438~tplv-obj.webp" alt="Rosa" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Rosa</p>
-        <p class="gift-price">10 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/365d88a08eaf60f3703038dbeeb5063c.png~tplv-obj.webp" alt="New Year Keyboard" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">New Year Keyboard</p>
-        <p class="gift-price">20 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/20b8f61246c7b6032777bb81bf4ee055~tplv-obj.webp" alt="Perfume" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Perfume</p>
-        <p class="gift-price">20 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/4e7ad6bdf0a1d860c538f38026d4e812~tplv-obj.webp" alt="Doughnut" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Doughnut</p>
-        <p class="gift-price">30 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/0f158a08f7886189cdabf496e8a07c21~tplv-obj.webp" alt="Paper Crane" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Paper Crane</p>
-        <p class="gift-price">99 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/cf3db11b94a975417043b53401d0afe1~tplv-obj.webp" alt="Little Crown" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Little Crown</p>
-        <p class="gift-price">99 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/6c2ab2da19249ea570a2ece5e3377f04~tplv-obj.webp" alt="Cap" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Cap</p>
-        <p class="gift-price">99 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/2f1e4f3f5c728ffbfa35705b480fdc92~tplv-obj.webp" alt="Hat and Mustache" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Hat and Mustache</p>
-        <p class="gift-price">99 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/75eb7b4aca24eaa6e566b566c7d21e2f~tplv-obj.webp" alt="Like-Pop" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Like-Pop</p>
-        <p class="gift-price">99 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/de6f01cb2a0deb2da24cb5d1ecf9a23b.png~tplv-obj.webp" alt="Love Painting" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Love Painting</p>
-        <p class="gift-price">99 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/52ebbe9f3f53b5567ad11ad6f8303c58.png~tplv-obj.webp" alt="Bubble Gum" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Bubble Gum</p>
-        <p class="gift-price">99 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/485175fda92f4d2f862e915cbcf8f5c4~tplv-obj.webp" alt="Star" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Star</p>
-        <p class="gift-price">99 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/6639eb3590a59052babc9cb772ae4f5b.png~tplv-obj.webp" alt="Team Victory" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Team Victory</p>
-        <p class="gift-price">99 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/c6c5b0efea6f1f7e1fd1f3909284d12c.png~tplv-obj.webp" alt="Level-up Sparks" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Level-up Sparks</p>
-        <p class="gift-price">99 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/20ec0eb50d82c2c445cb8391fd9fe6e2~tplv-obj.webp" alt="Game Controller" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Game Controller</p>
-        <p class="gift-price">100 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/cbd7588c53ec3df1af0ed6d041566362.png~tplv-obj.webp" alt="Super GG" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Super GG</p>
-        <p class="gift-price">100 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/cb1c3e6263d4b6c08301f8798dcb5a9b.png~tplv-obj.webp" alt="Tsar" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Tsar</p>
-        <p class="gift-price">100 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/cb4e11b3834e149f08e1cdcc93870b26~tplv-obj.webp" alt="Confetti" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Confetti</p>
-        <p class="gift-price">100 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/6cd022271dc4669d182cad856384870f~tplv-obj.webp" alt="Hand Hearts" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Hand Hearts</p>
-        <p class="gift-price">100 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/fccc851d351716bc8b34ec65786c727d~tplv-obj.webp" alt="Marvelous Confetti" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Marvelous Confetti</p>
-        <p class="gift-price">100 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/08af67ab13a8053269bf539fd27f3873.png~tplv-obj.webp" alt="Sunglasses" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Sunglasses</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/934b5a10dee8376df5870a61d2ea5cb6.png~tplv-obj.webp" alt="Hearts" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Hearts</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/bdbdd8aeb2b69c173a3ef666e63310f3~tplv-obj.webp" alt="Garland Headpiece" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Garland Headpiece</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/134e51c00f46e01976399883ca4e4798~tplv-obj.webp" alt="Love You" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Love You</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/1059dfa76c78dc17d7cf0a1fc2ece185~tplv-obj.webp" alt="Cheer For You" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Cheer For You</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/81c8ecd8f50b511a95259a29aea86e96~tplv-obj.webp" alt="Panther Paws" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Panther Paws</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/9bfe63e39b581a69ff944758c3eae5a0~tplv-obj.webp" alt="Flower Festival" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Flower Festival</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/ebb5bcf8d8fe3f8975eeb76b37ddbd77~tplv-obj.webp" alt="Suitcase" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Suitcase</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/36e8c1842cca654bfb08db09a1235e84~tplv-obj.webp" alt="Driver Hat" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Driver Hat</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/192a873e366e2410da4fa406aba0e0af.png~tplv-obj.webp" alt="Sparklers" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Sparklers</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/c37b8f76d503f5787407a8d7c52f8cb7.png~tplv-obj.webp" alt="Stinging Bee" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Stinging Bee</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/3ebdd3746d91eb06bdd4a04c49c3b04a.png~tplv-obj.webp" alt="Massage for You" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Massage for You</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/0cb623f44c34f77fe14c2e11bfe4ee62.png~tplv-obj.webp" alt="Coffee Magic" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Coffee Magic</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/82c401f409482b0b6dd4f1016d7a4f49.png~tplv-obj.webp" alt="Meerkat" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Meerkat</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/d5d829bbca08bd500317991fbaa84bc3.png~tplv-obj.webp" alt="Dancing Hands" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Dancing Hands</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/0ac3b58039881ac97bd79423121f0d27.png~tplv-obj.webp" alt="Potato in Paris" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Potato in Paris</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/d1c75692e369466b4fd23546e513caed~tplv-obj.webp" alt="Pinch Cheek" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Pinch Cheek</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/8e07b761de41080d86c2566cd2646be6~tplv-obj.webp" alt="Stroke Hair" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Stroke Hair</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/7d729b6a8104f5d349ba887608cd35bc.png~tplv-obj.webp" alt="Cheering Crab" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Cheering Crab</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/3d136834fe9964927d6b30499a68b741.png~tplv-obj.webp" alt="Night Star" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Night Star</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/f15902127c6750276af4021e818e756e.png~tplv-obj.webp" alt="Twinkling Star" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Twinkling Star</p>
-        <p class="gift-price">199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/9990296bde9651a14fdc8dda3b4fd9a9.png~tplv-obj.webp" alt="2025 JoyLens" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">2025 JoyLens</p>
-        <p class="gift-price">225 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/e97464966a2fcf3e73f662f310532e34.png~tplv-obj.webp" alt="2025 Glasses" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">2025 Glasses</p>
-        <p class="gift-price">225 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/a10aab8940d3d5aee14b14cde033ab2a.png~tplv-obj.webp" alt="Pinch Face" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Pinch Face</p>
-        <p class="gift-price">249 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/91058c626f0809291e7941969e4f0d05.png~tplv-obj.webp" alt="Gamer 2025" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Gamer 2025</p>
-        <p class="gift-price">299 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/9f8bd92363c400c284179f6719b6ba9c~tplv-obj.webp" alt="Boxing Gloves" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Boxing Gloves</p>
-        <p class="gift-price">299 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/148eef0884fdb12058d1c6897d1e02b9~tplv-obj.webp" alt="Corgi" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Corgi</p>
-        <p class="gift-price">299 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/1153dd51308c556cb4fcc48c7d62209f.png~tplv-obj.webp" alt="Fruit Friends" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Fruit Friends</p>
-        <p class="gift-price">299 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/f9857a040c92b34d6a261201a93c185f.png~tplv-obj.webp" alt="Elf’s hat " onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Elf’s hat </p>
-        <p class="gift-price">299 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/634deadfe65fae70a2dfe4fcb66f14ca.png~tplv-obj.webp" alt="Santa Claus’s Cap" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Santa Claus’s Cap</p>
-        <p class="gift-price">299 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/1522b75d605a9bb4e9c1c739c8569571.png~tplv-obj.webp" alt="Dancing Flower" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Dancing Flower</p>
-        <p class="gift-price">299 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/46a839dbc1c3e9103c71d82b35b21ad4.png~tplv-obj.webp" alt="Naughty Chicken" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Naughty Chicken</p>
-        <p class="gift-price">299 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/34201b86430742595e4dcb5b39560b7a.png~tplv-obj.webp" alt="Play for You" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Play for You</p>
-        <p class="gift-price">299 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/57acaf0590c56c219493b71fe8d2961d.png~tplv-obj.webp" alt="Rock Star" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Rock Star</p>
-        <p class="gift-price">299 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/9c64c1c15bb2e3ba5f1303c3f9208dac.png~tplv-obj.webp" alt="Elephant trunk" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Elephant trunk</p>
-        <p class="gift-price">299 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/e02af5a7d59a958bd38536f7e3473f75.png~tplv-obj.webp" alt="Butterfly for You" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Butterfly for You</p>
-        <p class="gift-price">299 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/1b526122c944488d1aeea96c247d5fcd~tplv-obj.webp" alt="Camping" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Camping</p>
-        <p class="gift-price">300 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/863e7947bc793f694acbe970d70440a1.png~tplv-obj.webp" alt="Forever Rosa" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Forever Rosa</p>
-        <p class="gift-price">399 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/00f1882035fcf9407e4b1955f0b4c48b.png~tplv-obj.webp" alt="Magic Rhythm" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Magic Rhythm</p>
-        <p class="gift-price">399 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/3961645e741423d7b334fb4b6488852f.png~tplv-obj.webp" alt="Relaxed Goose" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Relaxed Goose</p>
-        <p class="gift-price">399 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/30ba2b172614d3c2da0e7caaca333b41.png~tplv-obj.webp" alt="Tom's Hug" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Tom's Hug</p>
-        <p class="gift-price">399 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/3cbaea405cc61e8eaab6f5a14d127511.png~tplv-obj.webp" alt="Rosie the Rose Bean" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Rosie the Rose Bean</p>
-        <p class="gift-price">399 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/0e3769575f5b7b27b67c6330376961a4.png~tplv-obj.webp" alt="Jollie the Joy Bean" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Jollie the Joy Bean</p>
-        <p class="gift-price">399 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/767d7ea90f58f3676bbc5b1ae3c9851d.png~tplv-obj.webp" alt="Rocky the Rock Bean" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Rocky the Rock Bean</p>
-        <p class="gift-price">399 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/ed2cc456ab1a8619c5093eb8cfd3d303.png~tplv-obj.webp" alt="Sage the Smart Bean" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Sage the Smart Bean</p>
-        <p class="gift-price">399 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/11769d71ebd3c6a21f4baa7184791da9.png~tplv-obj.webp" alt="Beating Heart" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Beating Heart</p>
-        <p class="gift-price">449 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/d4faa402c32bf4f92bee654b2663d9f1~tplv-obj.webp" alt="Coral" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Coral</p>
-        <p class="gift-price">499 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/f4d906542408e6c87cf0a42f7426f0c6~tplv-obj.webp" alt="Hands Up" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Hands Up</p>
-        <p class="gift-price">499 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/e0589e95a2b41970f0f30f6202f5fce6~tplv-obj.webp" alt="Money Gun" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Money Gun</p>
-        <p class="gift-price">500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/ff69309e8d3ebded58e8724598adc97c.png~tplv-obj.webp" alt="Shashlik" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Shashlik</p>
-        <p class="gift-price">500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/b48c69f4df49c28391bcc069bbc31b41.png~tplv-obj.webp" alt="You’re Amazing" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">You’re Amazing</p>
-        <p class="gift-price">500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/18c51791197b413bbd1b4f1b983bda36.png~tplv-obj.webp" alt="VR Goggles" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">VR Goggles</p>
-        <p class="gift-price">500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/d4aad726e2759e54a924fbcd628ea143.png~tplv-obj.webp" alt="DJ Glasses" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">DJ Glasses</p>
-        <p class="gift-price">500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/ca11566ae5a41ec8971cc00b51f78dac.png~tplv-obj.webp" alt="Manifesting" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Manifesting</p>
-        <p class="gift-price">500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/0e08e24dc32f9b55ccc051a5d89dbe60.png~tplv-obj.webp" alt="Eid Sheep" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Eid Sheep</p>
-        <p class="gift-price">500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/3ee3b9eda0c1b9c869a7b12ad08eb9d7.png~tplv-obj.webp" alt="Couch Potato" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Couch Potato</p>
-        <p class="gift-price">500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/1d3f3738f57d6a45dd6df904bedd59ae.png~tplv-obj.webp" alt="Dragon Crown" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Dragon Crown</p>
-        <p class="gift-price">500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/6abb39fb8088a1897b8163e54394845c.png~tplv-obj.webp" alt="Star Map Polaris" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Star Map Polaris</p>
-        <p class="gift-price">500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/dd06007ade737f1001977590b11d3f61~tplv-obj.webp" alt="Gem Gun" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Gem Gun</p>
-        <p class="gift-price">500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/97a26919dbf6afe262c97e22a83f4bf1~tplv-obj.webp" alt="Swan" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Swan</p>
-        <p class="gift-price">699 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/0c96b9780b6622d6759b70dd670b0e18.png~tplv-obj.webp" alt="Suncatcher" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Suncatcher</p>
-        <p class="gift-price">800 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/4227ed71f2c494b554f9cbe2147d4899~tplv-obj.webp" alt="Train" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Train</p>
-        <p class="gift-price">899 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/753098e5a8f45afa965b73616c04cf89~tplv-obj.webp" alt="Travel with You" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Travel with You</p>
-        <p class="gift-price">999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/6ae56f08ae3ee57ea2dda0025bfd39d3.png~tplv-obj.webp" alt="Lucky Airdrop Box" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Lucky Airdrop Box</p>
-        <p class="gift-price">999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/df7b556ccf369bf9a42fe83ec8a77acf.png~tplv-obj.webp" alt="Trending Figure" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Trending Figure</p>
-        <p class="gift-price">999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/1d1650cd9bb0e39d72a6e759525ffe59~tplv-obj.webp" alt="Watermelon Love" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Watermelon Love</p>
-        <p class="gift-price">1000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/f76750ab58ee30fc022c9e4e11d25c9d.png~tplv-obj.webp" alt="Blooming Ribbons" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Blooming Ribbons</p>
-        <p class="gift-price">1000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/79a02148079526539f7599150da9fd28.png~tplv-obj.webp" alt="Galaxy" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Galaxy</p>
-        <p class="gift-price">1000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/9e7ebdca64b8f90fcc284bb04ab92d24~tplv-obj.webp" alt="Shiny air balloon" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Shiny air balloon</p>
-        <p class="gift-price">1000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/9494c8a0bc5c03521ef65368e59cc2b8~tplv-obj.webp" alt="Fireworks" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Fireworks</p>
-        <p class="gift-price">1088 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/008a9554e736642f1b2dca9f198bb710.png~tplv-obj.webp" alt="Gingerbread Party" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Gingerbread Party</p>
-        <p class="gift-price">1200 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/3b1e8de86d841496b87567014827537b.png~tplv-obj.webp" alt="Love Shelter" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Love Shelter</p>
-        <p class="gift-price">1200 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/61863cebe02f25d95f187d3b0033718d.png~tplv-obj.webp" alt="Level Ship" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Level Ship</p>
-        <p class="gift-price">1500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/1ea8dbb805466c4ced19f29e9590040f~tplv-obj.webp" alt="Chasing the Dream" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Chasing the Dream</p>
-        <p class="gift-price">1500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/f3010d1fcb008ce1b17248e5ea18b178.png~tplv-obj.webp" alt="Lover’s Lock" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Lover’s Lock</p>
-        <p class="gift-price">1500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/dac91f95d4135654fe16d09369dd8355.png~tplv-obj.webp" alt="Greeting Card" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Greeting Card</p>
-        <p class="gift-price">1500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/af980f4ec9ed73f3229df8dfb583abe6.png~tplv-obj.webp" alt="Future Encounter" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Future Encounter</p>
-        <p class="gift-price">1500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/af67b28480c552fd8e8c0ae088d07a1d.png~tplv-obj.webp" alt="Under Control" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Under Control</p>
-        <p class="gift-price">1500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/1420cc77d628c49516b9330095101496.png~tplv-obj.webp" alt="Love Explosion" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Love Explosion</p>
-        <p class="gift-price">1500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/61b76a51a3757f0ff1cdc33b16c4d8ae~tplv-obj.webp" alt="Here We Go" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Here We Go</p>
-        <p class="gift-price">1799 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/1ea684b3104abb725491a509022f7c02~tplv-obj.webp" alt="Love Drop" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Love Drop</p>
-        <p class="gift-price">1800 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/6b2af2af5e96703d10295ef0810971bc.png~tplv-obj.webp" alt="New Year Table" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">New Year Table</p>
-        <p class="gift-price">1899 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/5b9bf90278f87b9ca0c286d3c8a12936~tplv-obj.webp" alt="Star of Red Carpet" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Star of Red Carpet</p>
-        <p class="gift-price">1999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/9cc22f7c8ac233e129dec7b981b91b76~tplv-obj.webp" alt="Gift Box" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Gift Box</p>
-        <p class="gift-price">1999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/3f1945b0d96e665a759f747e5e0cf7a9~tplv-obj.webp" alt="Cooper Flies Home" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Cooper Flies Home</p>
-        <p class="gift-price">1999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/c110230c5db903db5f060a432f5a86cd~tplv-obj.webp" alt="Mystery Firework" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Mystery Firework</p>
-        <p class="gift-price">1999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/733030ca95fe6f757533aec40bf2af3a.png~tplv-obj.webp" alt="Baby Dragon" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Baby Dragon</p>
-        <p class="gift-price">2000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/53abf4e1994aa96733ab3e601519a91f.png~tplv-obj.webp" alt="Extravaganza 2025" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Extravaganza 2025</p>
-        <p class="gift-price">2025 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/7847c84c007d478575071750d8e407f3.png~tplv-obj.webp" alt="Celebrate 2025" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Celebrate 2025</p>
-        <p class="gift-price">2025 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/46fa70966d8e931497f5289060f9a794~tplv-obj.webp" alt="Whale Diving" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Whale Diving</p>
-        <p class="gift-price">2150 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/6930e09652646237a9501585c5d1a698~tplv-obj.webp" alt="Jetski" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Jetski</p>
-        <p class="gift-price">2199 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/225155bbff60d5c5ec9f7fb100612542.png~tplv-obj.webp" alt="Santa’s House" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Santa’s House</p>
-        <p class="gift-price">2200 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/60d8c4148c9cd0c268e570741ccf4150.png~tplv-obj.webp" alt="Animal Band" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Animal Band</p>
-        <p class="gift-price">2500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/6517b8f2f76dc75ff0f4f73107f8780e~tplv-obj.webp" alt="Motorcycle" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Motorcycle</p>
-        <p class="gift-price">2988 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/0de49ea9a79e65307c674596da517792.png~tplv-obj.webp" alt="Pink Dream" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Pink Dream</p>
-        <p class="gift-price">2988 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/a213e8c2f1d20486bd7ddccf4ffbe6a1~tplv-obj.webp" alt="Illumination" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Illumination</p>
-        <p class="gift-price">2999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/16eacf541e4bd6816e88139d079519f5.png~tplv-obj.webp" alt="Rhythmic Bear" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Rhythmic Bear</p>
-        <p class="gift-price">2999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/9a87567b4bb63b175f146745af412bb5.png~tplv-obj.webp" alt="Level-up Spotlight" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Level-up Spotlight</p>
-        <p class="gift-price">2999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/71883933511237f7eaa1bf8cd12ed575~tplv-obj.webp" alt="Meteor Shower" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Meteor Shower</p>
-        <p class="gift-price">3000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/3646c259f8ce6f79c762ad00ce51dda0~tplv-obj.webp" alt="Gift Box" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Gift Box</p>
-        <p class="gift-price">3999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/4648237059ec7b52a74bc7f1aaf611ca~tplv-obj.webp" alt="Sakura Train" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Sakura Train</p>
-        <p class="gift-price">3999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/cbd9df3ff41e40cb2a467aa783cd2b68.png~tplv-obj.webp" alt="Cosy Nights" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Cosy Nights</p>
-        <p class="gift-price">4000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/96b90b067613bc4bb839260204252d15.png~tplv-obj.webp" alt="Neon Caravan" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Neon Caravan</p>
-        <p class="gift-price">4088 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/86c9c8fb5aa76488b075f139dd575dfe.png~tplv-obj.webp" alt="Your Concert" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Your Concert</p>
-        <p class="gift-price">4500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/921c6084acaa2339792052058cbd3fd3~tplv-obj.webp" alt="Private Jet" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Private Jet</p>
-        <p class="gift-price">4888 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/a7748baba012c9e2d98a30dce7cc5a27~tplv-obj.webp" alt="Leon the Kitten" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Leon the Kitten</p>
-        <p class="gift-price">4888 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/fe27eba54a50c0a687e3dc0f2c02067d~tplv-obj.webp" alt="Signature Jet" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Signature Jet</p>
-        <p class="gift-price">4888 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/805aa1769546c984cd90e37c5fd3c69b.png~tplv-obj.webp" alt="Gamer's EVE" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Gamer's EVE</p>
-        <p class="gift-price">5000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/1d067d13988e8754ed6adbebd89b9ee8.png~tplv-obj.webp" alt="Flying Jets" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Flying Jets</p>
-        <p class="gift-price">5000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/002d5e13fd6cd18b7574b43dc4fd13ae.png~tplv-obj.webp" alt="Wolf" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Wolf</p>
-        <p class="gift-price">5500 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/2a7d6884ec548c4fa46fe4167fe69b05~tplv-obj.webp" alt="Star Beach" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Star Beach</p>
-        <p class="gift-price">6000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/963b7c25aa2cedc0de22358342645e87.png~tplv-obj.webp" alt="Future City" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Future City</p>
-        <p class="gift-price">6000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/3257e15b3f6697aed88b4ac51b816603.png~tplv-obj.webp" alt="Work Hard Play Harder" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Work Hard Play Harder</p>
-        <p class="gift-price">6000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/4d3dc350855f5ed65639f14bd3ffaaf3.png~tplv-obj.webp" alt="Hands up High" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Hands up High</p>
-        <p class="gift-price">6000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/7be03e1af477d1dbc6eb742d0c969372.png~tplv-obj.webp" alt="Lili the Leopard" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Lili the Leopard</p>
-        <p class="gift-price">6599 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/dca41492ccdcc0fe09d40f27f42125b2.png~tplv-obj.webp" alt="Merry Crust-mas" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Merry Crust-mas</p>
-        <p class="gift-price">6999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/e73e786041d8218d8e9dbbc150855f1b~tplv-obj.webp" alt="Celebration Time" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Celebration Time</p>
-        <p class="gift-price">6999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/41774a8ba83c59055e5f2946d51215b4~tplv-obj.webp" alt="Happy Party" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Happy Party</p>
-        <p class="gift-price">6999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/e7ce188da898772f18aaffe49a7bd7db~tplv-obj.webp" alt="Sports Car" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Sports Car</p>
-        <p class="gift-price">7000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/30063f6bc45aecc575c49ff3dbc33831~tplv-obj.webp" alt="Star Throne" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Star Throne</p>
-        <p class="gift-price">7999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/30063f6bc45aecc575c49ff3dbc33831~tplv-obj.webp" alt="Star Throne" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Star Throne</p>
-        <p class="gift-price">7999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/0a0e791d93ef7c2402b20682a271515a.png~tplv-obj.webp" alt="Go Go Corgi" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Go Go Corgi</p>
-        <p class="gift-price">8999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/6958244f3eeb69ce754f735b5833a4aa.png~tplv-obj.webp" alt="Leon and Lili" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Leon and Lili</p>
-        <p class="gift-price">9699 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/1f8f98902b610c6e1b663856eaddd376.png~tplv-obj.webp" alt="Santa Town" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Santa Town</p>
-        <p class="gift-price">9999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/8520d47b59c202a4534c1560a355ae06~tplv-obj.webp" alt="Interstellar" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Interstellar</p>
-        <p class="gift-price">10000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/df63eee488dc0994f6f5cb2e65f2ae49~tplv-obj.webp" alt="Sunset Speedway" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Sunset Speedway</p>
-        <p class="gift-price">10000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/3cb4ecd1293e05cf5a0a3f42b27206dc.png~tplv-obj.webp" alt="Henry" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Henry</p>
-        <p class="gift-price">10000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/1d91543decd90e6905aa134ca01a9a43.png~tplv-obj.webp" alt="Falcon" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Falcon</p>
-        <p class="gift-price">10999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/f411a4ca0c920d9a4c9860d1fc12ca83.png~tplv-obj.webp" alt="Holiday Leon" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Holiday Leon</p>
-        <p class="gift-price">10999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/5f48599c8d2a7bbc6e6fcf11ba2c809f~tplv-obj.webp" alt="Red Lightning" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Red Lightning</p>
-        <p class="gift-price">12000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/51a7d74bcb4a6417be59f0ffc0b77e96.png~tplv-obj.webp" alt="Mountains" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Mountains</p>
-        <p class="gift-price">12000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/52a09724bbe8d78227db67bc5fe78613.png~tplv-obj.webp" alt="Level-up Spectacle" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Level-up Spectacle</p>
-        <p class="gift-price">12999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/f722088231103b66875dae33f13f8719.png~tplv-obj.webp" alt="Rosa Nebula" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Rosa Nebula</p>
-        <p class="gift-price">15000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/dd615b15ed696ee886064d5415dab688.png~tplv-obj.webp" alt="Future Journey" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Future Journey</p>
-        <p class="gift-price">15000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/c45505ece4a91d9c43e4ba98a000b006.png~tplv-obj.webp" alt="Party On&amp;On" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Party On&amp;On</p>
-        <p class="gift-price">15000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/fd979db7886899b2414973b237373bc3.png~tplv-obj.webp" alt="To the Space" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">To the Space</p>
-        <p class="gift-price">15000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/12ecc01c2984c5d85bb508e80103a3cb.png~tplv-obj.webp" alt="Amusement Park" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Amusement Park</p>
-        <p class="gift-price">17000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/ada51a63094568b529b5efd83b182bc4.png~tplv-obj.webp" alt="Diamond flight" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Diamond flight</p>
-        <p class="gift-price">18000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/a598ba4c7024f4d46c1268be4d82f901~tplv-obj.webp" alt="Fly Love" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Fly Love</p>
-        <p class="gift-price">19999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/6a0521ebbdba06e6cfb4af333b61d180.png~tplv-obj.webp" alt="Winter Magic" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Winter Magic</p>
-        <p class="gift-price">20000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/8ef48feba8dd293a75ae9d4376fb17c9~tplv-obj.webp" alt="TikTok Shuttle" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">TikTok Shuttle</p>
-        <p class="gift-price">20000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/c2b287adee5151b7889d6e3d45b72e44~tplv-obj.webp" alt="Premium Shuttle" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Premium Shuttle</p>
-        <p class="gift-price">20000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/aca72c59f99d08b0c0d1cd6cc79dbb16.png~tplv-obj.webp" alt="Level Ship" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Level Ship</p>
-        <p class="gift-price">21000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/ef248375c4167d70c1642731c732c982~tplv-obj.webp" alt="Phoenix" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Phoenix</p>
-        <p class="gift-price">25999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/9a586391fbb1e21621c4203e5563a9e0~tplv-obj.webp" alt="Adam’s Dream" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Adam’s Dream</p>
-        <p class="gift-price">25999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/711e54bfaf58888991c4ee6ff6953413~tplv-obj.webp" alt="Griffin" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Griffin</p>
-        <p class="gift-price">25999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/89b4d1d93c1cc614e3a0903ac7a94e0c~tplv-obj.webp" alt="Dragon Flame" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Dragon Flame</p>
-        <p class="gift-price">26999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/4fb89af2082a290b37d704e20f4fe729~tplv-obj.webp" alt="Lion" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Lion</p>
-        <p class="gift-price">29999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/4caa9de208d634c1fab77754fe16530c~tplv-obj.webp" alt="Golden sports car" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Golden sports car</p>
-        <p class="gift-price">29999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/a291aedacf27d22c3fd2d83575d2bee9~tplv-obj.webp" alt="Leon and Lion" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Leon and Lion</p>
-        <p class="gift-price">34000 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/b13105782e8bf8fbefaa83b7af413cee~tplv-obj.webp" alt="TikTok Universe+" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">TikTok Universe+</p>
-        <p class="gift-price">34999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/b1667c891ed39fd68ba7252fff7a1e7c~tplv-obj.webp" alt="TikTok Stars" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">TikTok Stars</p>
-        <p class="gift-price">39999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/b45afdb2026374306d24fe28a565acd8.png~tplv-obj.webp" alt="Holiday Lion" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Holiday Lion</p>
-        <p class="gift-price">39999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/26f3fbcda383e6093a19b8e7351a164c~tplv-obj.webp" alt="Thunder Falcon" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Thunder Falcon</p>
-        <p class="gift-price">39999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/bfb8425a7e8fa03f9fec05a973a4a506.png~tplv-obj.webp" alt="Fire Phoenix" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Fire Phoenix</p>
-        <p class="gift-price">41999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/f600a2495ab5d250e7da2066484a9383.png~tplv-obj.webp" alt="Pegasus" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Pegasus</p>
-        <p class="gift-price">42999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/8f471afbcebfda3841a6cc515e381f58~tplv-obj.webp" alt="TikTok Universe" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">TikTok Universe</p>
-        <p class="gift-price">44999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/8f471afbcebfda3841a6cc515e381f58~tplv-obj.webp" alt="TikTok Universe" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">TikTok Universe</p>
-        <p class="gift-price">44999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-    <div class="gift">
-        <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/26b1c4e777cc486ae489ea7033ad8cbc.png~tplv-obj.webp" alt="Holiday Universe" onerror="this.onerror=null; this.src='/images/default-gift.jpg';"data-price="" onclick="toggleSelection(this)">
-        <p class="gift-name">Holiday Universe</p>
-        <p class="gift-price">60999 <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt=""></p>
-    </div>
-
-</div>
-
-<div class="button-container">
+        <div class="popup-content" id="popupContent">
+            <!-- Conteúdo da popup -->
+        </div>
+        <div class="button-container">
             <button onclick="addSelectedGifts()">Adicionar Presentes</button>
+        </div>
+    </div>
+
+    <div class="find-gift-button" onclick="openFindGiftPopup()">
+        Clique aqui para encontrar um presente
+    </div>
+
+    <div class="popup" id="findGiftPopup">
+        <div class="popup-header">
+            <h2>Encontrar Presente</h2>
+            <button onclick="closeFindGiftPopup()">✖</button>
+        </div>
+        <div class="popup-content" id="findGiftContent">
+            <!-- Conteúdo da popup -->
         </div>
     </div>
 
@@ -1398,14 +198,34 @@
         const track = document.getElementById('carouselTrack');
         let items = Array.from(track.children);
         const selectedGifts = new Set();
-    
+        const popupContent = document.getElementById('popupContent');
+
+        const gifts = [
+            { src: 'https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.webp', alt: 'GG', price: '1' },
+            { src: 'https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/b805f23afc85a3d4be1a49fac83144b5.png~tplv-obj.webp', alt: '2025', price: '1' },
+            // Adicione mais presentes aqui conforme necessário
+        ];
+
+        function populatePopup() {
+            gifts.forEach(gift => {
+                const giftElement = document.createElement('div');
+                giftElement.className = 'gift';
+                giftElement.innerHTML = `
+                    <img src="${gift.src}" alt="${gift.alt}" data-price="${gift.price}" onclick="toggleSelection(this)">
+                    <p class="gift-name">${gift.alt}</p>
+                    <p class="gift-price">${gift.price} <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+                `;
+                popupContent.appendChild(giftElement);
+            });
+        }
+
         function createInfiniteLoop() {
             const totalWidth = items.reduce((sum, item) => sum + item.offsetWidth + 60, 0);
             track.style.width = `${totalWidth}px`;
-    
+
             let position = 0;
             const speed = 3;
-    
+
             function animate() {
                 position -= speed;
                 if (Math.abs(position) >= items[0].offsetWidth + 60) {
@@ -1417,18 +237,18 @@
                 track.style.transform = `translateX(${position}px)`;
                 requestAnimationFrame(animate);
             }
-    
+
             animate();
         }
-    
+
         function openPopup() {
             document.getElementById('popup').style.display = 'block';
         }
-    
+
         function closePopup() {
             document.getElementById('popup').style.display = 'none';
         }
-    
+
         function toggleSelection(img) {
             const giftName = img.alt;
             if (selectedGifts.has(giftName)) {
@@ -1442,7 +262,7 @@
                 selectedGifts.delete(giftName);
             }
         }
-    
+
         function addSelectedGifts() {
             const selectedImages = document.querySelectorAll('.popup-content img.selected');
             selectedImages.forEach(img => {
@@ -1460,14 +280,41 @@
             closePopup();
             createInfiniteLoop();
         }
-    
+
         function removeAllGifts() {
             track.innerHTML = '';
             items = [];
             selectedGifts.clear();
         }
-    
-        window.onload = createInfiniteLoop;
+
+        function openFindGiftPopup() {
+            document.getElementById('findGiftPopup').style.display = 'block';
+            populateFindGiftPopup();
+        }
+
+        function closeFindGiftPopup() {
+            document.getElementById('findGiftPopup').style.display = 'none';
+        }
+
+        function populateFindGiftPopup() {
+            const findGiftContent = document.getElementById('findGiftContent');
+            findGiftContent.innerHTML = '';
+            gifts.forEach(gift => {
+                const giftElement = document.createElement('div');
+                giftElement.className = 'gift';
+                giftElement.innerHTML = `
+                    <img src="${gift.src}" alt="${gift.alt}">
+                    <p class="gift-name">${gift.alt}</p>
+                    <p class="gift-price">${gift.price} <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+                `;
+                findGiftContent.appendChild(giftElement);
+            });
+        }
+
+        window.onload = function() {
+            createInfiniteLoop();
+            populatePopup();
+        };
     </script>
-    </body>
+</body>
 </html>
