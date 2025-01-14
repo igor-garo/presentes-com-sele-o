@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Infinito Sem Duplicação</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
+            height: 150px;
+            align-items: center;
+            position: relative;
+            background-color: #111;
+        }
+
+        .carousel-track {
+            display: flex;
+            position: relative;
+            animation: none;
+        }
+
+        .carousel-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            width: 150px;
+            margin: 0 30px;
+            color: white;
+        }
+
+        .carousel-item img {
+            width: 100px;
+            height: auto;
+        }
+
+        .gift-name {
+            margin: 5px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .gift-price {
+            margin: 5px 0;
+            text-align: center;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .gift-price img {
+            width: 12px;
+            height: 12px;
+            margin-left: 5px;
+            display: inline-block;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background-color: #111;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .popup-header h2 {
+            margin: 0;
+            color: white;
+        }
+
+        .popup-header button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .popup-content {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .popup-content img {
+            width: 100px;
+            height: auto;
+            margin: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .popup-content img.selected {
+            border: 2px solid #fff;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #222;
+            color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button-container button:hover {
+            background-color: #444;
+        }
+
+        .button-container button:focus {
+            outline: none;
+            border-color: #555;
+        }
+
+        .find-gift-button {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="carousel-track" id="carouselTrack">
+            <!-- Itens da carrossel -->
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button onclick="openPopup()">Selecionar Imagens</button>
+        <button onclick="removeAllGifts()">Remover Todos os Presentes</button>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-header">
+            <h2>Selecione as Imagens</h2>
+            <button onclick="closePopup()">✖</button>
+        </div>
+        <div class="popup-content" id="popupContent">
+            <!-- Conteúdo da popup -->
+        </div>
+        <div class="button-container">
+            <button onclick="addSelectedGifts()">Adicionar Presentes</button>
+        </div>
+    </div>
+
+    <div class="find-gift-button" onclick="openFindGiftPopup()">
+        Clique aqui para encontrar um presente
+    </div>
+
+    <div class="popup" id="findGiftPopup">
+        <div class="popup-header">
+            <h2>Encontrar Presente</h2>
+            <button onclick="closeFindGiftPopup()">✖</button>
+        </div>
+        <div class="popup-content" id="findGiftContent">
+            <!-- Conteúdo da popup -->
+        </div>
+    </div>
+
+    <script>
+        const track = document.getElementById('carouselTrack');
+        let items = Array.from(track.children);
+        const selectedGifts = new Set();
+        const popupContent = document.getElementById('popupContent');
+
+        const gifts = [
+            { src: 'https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.webp', alt: 'GG', price: '1' },
+            { src: 'https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/b805f23afc85a3d4be1a49fac83144b5.png~tplv-obj.webp', alt: '2025', price: '1' },
+            // Adicione mais presentes aqui conforme necessário
+        ];
+
+        function populatePopup() {
+            gifts.forEach(gift => {
+                const giftElement = document.createElement('div');
+                giftElement.className = 'gift';
+                giftElement.innerHTML = `
+                    <img src="${gift.src}" alt="${gift.alt}" data-price="${gift.price}" onclick="toggleSelection(this)">
+                    <p class="gift-name">${gift.alt}</p>
+                    <p class="gift-price">${gift.price} <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+                `;
+                popupContent.appendChild(giftElement);
+            });
+        }
+
+        function createInfiniteLoop() {
+            const totalWidth = items.reduce((sum, item) => sum + item.offsetWidth + 60, 0);
+            track.style.width = `${totalWidth}px`;
+
+            let position = 0;
+            const speed = 3;
+
+            function animate() {
+                position -= speed;
+                if (Math.abs(position) >= items[0].offsetWidth + 60) {
+                    const firstItem = items.shift();
+                    position += firstItem.offsetWidth + 60;
+                    track.appendChild(firstItem);
+                    items.push(firstItem);
+                }
+                track.style.transform = `translateX(${position}px)`;
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+
+        function openPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function toggleSelection(img) {
+            const giftName = img.alt;
+            if (selectedGifts.has(giftName)) {
+                alert('Este presente já foi selecionado.');
+                return;
+            }
+            img.classList.toggle('selected');
+            if (img.classList.contains('selected')) {
+                selectedGifts.add(giftName);
+            } else {
+                selectedGifts.delete(giftName);
+            }
+        }
+
+        function addSelectedGifts() {
+            const selectedImages = document.querySelectorAll('.popup-content img.selected');
+            selectedImages.forEach(img => {
+                const newGift = document.createElement('div');
+                newGift.className = 'carousel-item';
+                newGift.innerHTML = `
+                    <img src="${img.src}" alt="${img.alt}">
+                    <p class="gift-name">${img.alt}</p>
+                    <p class="gift-price">${img.getAttribute('data-price')} <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+                `;
+                track.appendChild(newGift);
+                items.push(newGift);
+                img.classList.remove('selected');
+            });
+            closePopup();
+            createInfiniteLoop();
+        }
+
+        function removeAllGifts() {
+            track.innerHTML = '';
+            items = [];
+            selectedGifts.clear();
+        }
+
+        function openFindGiftPopup() {
+            document.getElementById('findGiftPopup').style.display = 'block';
+            populateFindGiftPopup();
+        }
+
+        function closeFindGiftPopup() {
+            document.getElementById('findGiftPopup').style.display = 'none';
+        }
+
+        function populateFindGiftPopup() {
+            const findGiftContent = document.getElementById('findGiftContent');
+            findGiftContent.innerHTML = '';
+            gifts.forEach(gift => {
+                const giftElement = document.createElement('div');
+                giftElement.className = 'gift';
+                giftElement.innerHTML = `
+                    <img src="${gift.src}" alt="${gift.alt}">
+                    <p class="gift-name">${gift.alt}</p>
+                    <p class="gift-price">${gift.price} <img style="width: 12px; height: 12px; display: block;" src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+                `;
+                findGiftContent.appendChild(giftElement);
+            });
+        }
+
+        window.onload = function() {
+            createInfiniteLoop();
+            populatePopup();
+        };
+    </script>
+</body>
+</html>
